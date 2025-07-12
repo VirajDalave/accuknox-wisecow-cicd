@@ -5,8 +5,7 @@ COPY wisecow.sh /app/
 RUN apt update && \
     apt install -y fortune-mod cowsay netcat && \
     ln -s /usr/games/fortune /usr/local/bin/fortune && \
-    ln -s /usr/games/cowsay /usr/local/bin/cowsay && \
-    apt clean
+    ln -s /usr/games/cowsay /usr/local/bin/cowsay
 
 # Expose the port used by the application
 EXPOSE 4499

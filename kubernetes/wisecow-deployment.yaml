@@ -3,12 +3,13 @@ kind: Deployment
 metadata:
   name: wisecow-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: wisecow
   template:
     metadata:
+      name: wisecow-pod
       labels:
         app: wisecow
     spec:

@@ -3,16 +3,13 @@ kind: Service
 metadata:
   name: wisecow-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - name: "http"
     port: 80
     protocol: TCP
     targetPort: 4499
-  - name: "https"
-    port: 443
-    protocol: TCP
-    targetPort: 4499
+    nodePort: 30000
   selector:
     app: wisecow
 
