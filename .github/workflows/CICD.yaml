@@ -31,4 +31,12 @@ jobs:
 
     - name: update image tag in k8s
       run: |
-            sed -i "s|image: .*|image: ${{ secrets.DOCKER_USERNAME }}/wisecow:${{ github.sha }}|" kubernetes/wisecow-deployment.yaml
+        sed -i "s|image: .*|image: ${{ secrets.DOCKER_USERNAME }}/wisecow:${{ github.sha }}|" kubernetes/wisecow-deployment.yaml
+
+    - name: commit changes
+      run: |
+        git config --global user.email "virajdvd7@gmail.com"
+        git config --global user.name "Viraj Dalave"
+        git add kubernetes/wisecow-deployment.yaml
+        git commit -m "[CI]: Update deployment image tag"
+        git push origin HEAD:main -f
