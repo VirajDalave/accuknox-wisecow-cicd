@@ -1,9 +1,9 @@
 name: Deploy wisecow
 
 on:
-  push:
+  pull_request:
     branches:
-      - develop
+      - main
 
 jobs:
   build-and-deploy:
