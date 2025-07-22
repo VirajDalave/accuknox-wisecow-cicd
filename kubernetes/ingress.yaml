@@ -2,17 +2,26 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: wisecow-ingress
+<<<<<<< HEAD
   namespace: default
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:985539779862:certificate/6695d37b-eb27-4aaf-9cec-eb114f83e2c9
     alb.ingress.kubernetes.io/ssl-redirect: "443"
+=======
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+>>>>>>> c5d9e0b6680e3a9e69f86de1d8d9841dd219170d
     alb.ingress.kubernetes.io/target-type: ip
 spec:
   ingressClassName: alb
   rules:
+<<<<<<< HEAD
     - host: wisecow.virajdalave.shop
+=======
+    - host: www.wisecow.com
+>>>>>>> c5d9e0b6680e3a9e69f86de1d8d9841dd219170d
       http:
         paths:
           - path: /
@@ -22,8 +31,11 @@ spec:
                 name: wisecow-service
                 port:
                   number: 4499
+<<<<<<< HEAD
   tls:
     - hosts:
         - wisecow.virajdalave.shop
       secretName: dummy-tls-secret # This is required but can be a dummy secret (ALB uses ACM instead)
+=======
+>>>>>>> c5d9e0b6680e3a9e69f86de1d8d9841dd219170d
 
